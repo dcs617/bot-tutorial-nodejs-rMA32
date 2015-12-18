@@ -6,7 +6,7 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
-      botRegexAd=/^\/advance/;botRegexGTA = /^\/gta/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
+      botRegexAd=/^\/advance/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexH = /^\/mfl/; botRegexSh = /^\/shrug/; botRegexWk = /^\/users/; botRegexCC = /^\/cc/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
@@ -34,11 +34,6 @@ function respond() {
   else if(request.text && botRegexRules.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://daddyleagues.com/mflpa/rules");
-    this.res.end();
-  } 
-  else if(request.text && botRegexGTA.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://i.groupme.com/220x147.jpeg.a2dd2add32b14fff9e329535186d793c.large");
     this.res.end();
   } 
   else if(request.text && botRegexSC.test(request.text)) {
@@ -71,7 +66,7 @@ function respond() {
   } 
   else if(request.text && botRegexWk.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("https://docs.google.com/spreadsheets/d/1kJqQWCq3RKiTrd4f71FFNKr-Y0ppJzjk0fSF0rP6Bto/edit?usp=sharing");
+    postMessage("http://daddyleagues.com/mflpa/coaches");
     this.res.end();
   } 
   else if(request.text && botODB.test(request.text)) {
