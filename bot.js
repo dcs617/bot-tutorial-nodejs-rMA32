@@ -22,6 +22,11 @@ function respond() {
     postMessage("http://daddyleagues.com/mflpa/team/"+request.text.substring(5,8)+"/depthchart");
     this.res.end();
   } 
+  else if(request.text && botRegexDuck.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://media3.giphy.com/media/YCseTHF2I6CCA/giphy.gif");
+    this.res.end();
+  } 
   else if(request.text && botRegexRules.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://daddyleagues.com/mflpa/rules");
