@@ -5,10 +5,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy/; botRegexDL = /^\/DDL/i; botRegexRules = /^\/rules/
-      botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
+      botRegex = /^\/cool guy/; botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
+      botRegexAd=/^\/advance/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexH = /^\/mfl/; botRegexSh = /^\/shrug/; 
-      botRegexWk = /^\/users/; botRegexTr=/^\/trades/; botRegexPr=/^\/propose/; 
+      botRegexWk = /^\/users/; botRegexCC = /^\/cc/; botRegexTr=/^\/trades/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
@@ -22,6 +22,16 @@ function respond() {
     postMessage("http://daddyleagues.com/mflpa/team/"+request.text.substring(5,8)+"/depthchart");
     this.res.end();
   } 
+  else if(request.text && botRegexSalt.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://i.imgur.com/B5BSVqH.png");
+    this.res.end();
+  } 
+  else if(request.text && botRegexAd.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://www.hackcollege.com/wp-content/uploads/2013/02/kno_advance.jpg");
+    this.res.end();
+  }
   else if(request.text && botRegexRules.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://daddyleagues.com/mflpa/rules");
@@ -39,6 +49,7 @@ function respond() {
     postMessage("http://daddyleagues.com/mflpa/players?name="+rep+"&position=all&team=all");
     this.res.end();
   }  
+
   else if(request.text && botRegexTw.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://www.twitch.tv/"+request.text.substring(8,request.text.length));
@@ -64,21 +75,21 @@ function respond() {
     postMessage("OBJ*");
     this.res.end();
   } 
-  else if(request.text && botRegexDuck.test(request.text)) {
+  else if(request.text && botDuck.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://media3.giphy.com/media/YCseTHF2I6CCA/giphy.gif");
     this.res.end();
-  } 
+  }
+  else if(request.text && botRegexCC.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("https://i.groupme.com/851x1184.jpeg.330228901f684b0cb46cd1cef6953923");
+    this.res.end();
+  }
     else if(request.text && botRegexTr.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://docs.google.com/spreadsheets/d/1h2vHYSGyoGtdtm0WSavIePm_IGjONvigvCK558BQuak/edit?usp=sharing");
     this.res.end();
-  }
-    else if(request.text && botRegexPr.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage("https://docs.google.com/forms/d/1g-DDjRfeKY0Cy09_A2hnclKGwZ6fjpzfC_a43YzlC5Q/viewform");
-    this.res.end();
-  }
+    }
   else {
     console.log("don't care");
     this.res.writeHead(200);
