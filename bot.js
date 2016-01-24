@@ -89,13 +89,12 @@ function respond() {
     this.res.writeHead(200);
     postMessage("https://docs.google.com/spreadsheets/d/1h2vHYSGyoGtdtm0WSavIePm_IGjONvigvCK558BQuak/edit?usp=sharing");
     this.res.end();
-    }
   }
     else if(request.text && botRegexUser.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://docs.google.com/spreadsheets/d/1wBMb8QNXA9OLF6fvcFIjlw-cWdGfBQzYMQwTJfn1h7Y/edit#gid=0");
     this.res.end();
-    }
+  }
   else {
     console.log("don't care");
     this.res.writeHead(200);
