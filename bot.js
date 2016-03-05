@@ -9,7 +9,7 @@ function respond() {
       botRegexAd=/^\/advance/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexH = /^\/mfl/; botRegexSh = /^\/shrug/; 
       botRegexWk = /^\/coaches/; botRegexCC = /^\/cc/; botRegexTr=/^\/trades/; botRegexUser=/^\/users/;
-      botRegexPro=/^\/propose/; botRegexSos=/^\/sos/;
+      botRegexPro=/^\/propose/; botRegexSos=/^\/sos/; botRegexStand=/^\/standings/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
@@ -104,6 +104,11 @@ function respond() {
     else if(request.text && botRegexSos.test(request.text)) {
     this.res.writeHead(200);
     postMessage("http://daddyleagues.com/mflpa/schedules/strength");
+    this.res.end();
+  }
+    else if(request.text && botRegexStand.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage("http://daddyleagues.com/mflpa/standings/conference");
     this.res.end();
   }
   else {
