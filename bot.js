@@ -9,7 +9,7 @@ function respond() {
       botRegexAd=/^\/advance/; botRegexSC = /^\/SDL/i; botODB = /(.*\s+)(.*odb)(\s+.*)/i; botDuck = /^\/duck/;
       botRegexP = /^\/PDL/i;  botRegexTw = /^\/twitch/i; botRegexH = /^\/mfl/; botRegexSh = /^\/shrug/; 
       botRegexWk = /^\/coaches/; botRegexCC = /^\/cc/; botRegexTr=/^\/trades/; botRegexUser=/^\/users/;
-      botRegexPro=/^\/propose/; botRegexSos=/^\/sos/; botRegexStand=/^\/standings/; botRegexTc=/^\/tc/;
+      botRegexPro=/^\/propose/; botRegexSos=/^\/sos/; botRegexStand=/^\/standings/; botRegexSugg=/^\/suggest/;
   var teamAb = ["NE","NO","ARI","PHI","CLE","TEN","OAK","DAL","IND","SEA","CIN","PIT","JAC"
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
@@ -111,7 +111,7 @@ function respond() {
     postMessage("http://daddyleagues.com/mflpa/standings/conference");
     this.res.end();
   }
-    else if(request.text && botRegexTc.test(request.text)) {
+    else if(request.text && botRegexSugg.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://docs.google.com/forms/d/1wnm2mvLzrZdRR_oDVFrIbsgjEKVqHDeVCGBbS_jZCOs/viewform?usp=send_form");
     this.res.end();
