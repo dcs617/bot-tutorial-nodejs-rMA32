@@ -122,7 +122,7 @@ function respond() {
     postMessage("https://docs.google.com/forms/d/1xpNs1QSR4Bs00hQTxCuGIJ8qOA1D36MvGAak4WTPyis/viewform");
     this.res.end();
   }
-    else if(request.text && botRegexTc.test(request.text)) {
+    else if(request.text && botRegexVote.test(request.text)) {
     this.res.writeHead(200);
     postMessage("https://docs.google.com/forms/d/1kg1hljBUstc62cBcdyT-0Xce8vRUA1kdRirMaPuNCU8/viewform");
     this.res.end();
